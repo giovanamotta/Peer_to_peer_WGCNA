@@ -1,12 +1,20 @@
 function nextSection(sectionNumber) {
+    // Obter a seção atual visível
     const currentSection = document.querySelector('.quiz-section:not([style*="display: none"])');
-    currentSection.style.display = 'none';
+    if (currentSection) {
+        // Ocultar a seção atual
+        currentSection.style.display = 'none';
+    }
+
+    // Mostrar a próxima seção
     const nextSection = document.getElementById(`section-${sectionNumber}`);
-    nextSection.style.display = 'block';
+    if (nextSection) {
+        nextSection.style.display = 'block';
+    }
 }
 
 function calculateScore() {
-    const form = document.getElementById('quiz-form');
+    const form = document.querySelector('form');
     const formData = new FormData(form);
     let score = 0;
 
