@@ -14,7 +14,7 @@ function nextSection(sectionNumber) {
 }
 
 function calculateScore() {
-    const form = document.querySelector('form');
+    const form = document.getElementById('quiz-form');
     const formData = new FormData(form);
     let score = 0;
 
