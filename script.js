@@ -66,8 +66,11 @@ let totalScore = 0;
 
 function loadQuiz() {
     const currentData = quizData[currentStep];
+    const content = document.createElement('div');
+    content.className = 'quiz-content fade-in';
+    
     if (currentData.type === "question") {
-        quiz.innerHTML = `
+        content.innerHTML = `
             <div class="quiz-question">${currentData.content}</div>
             <label>
                 <input type="radio" name="answer" value="a">
@@ -87,10 +90,13 @@ function loadQuiz() {
             </label>
         `;
     } else if (currentData.type === "curiosity") {
-        quiz.innerHTML = `
+        content.innerHTML = `
             <div class="quiz-curiosity">${currentData.content}</div>
         `;
     }
+
+    quiz.innerHTML = '';
+    quiz.appendChild(content);
 }
 
 function getSelected() {
@@ -105,25 +111,26 @@ function getSelected() {
 }
 
 nextBtn.addEventListener('click', () => {
-    if (quizData[currentStep].type === "question") {
+    const currentData = quizData[currentStep];
+    if (currentData.type === "question") {
         const answer = getSelected();
         if (answer) {
-            totalScore += quizData[currentStep].values[answer];
-            currentStep++;
-            if (currentStep < quizData.length) {
-                loadQuiz();
-            } else {
-                quiz.innerHTML = '';
-                results.innerHTML = `
-                    Você completou o quizz!
-                    <br>
-                    Baseado em suas respostas, você consome aproximadamente ${totalScore * 10} Barbies de plástico por ano!
-                `;
-            }
+            totalScore += currentData.values[answer];
+            nextStep();
         } else {
             alert('Por favor, selecione uma resposta!');
         }
     } else {
+        nextStep();
+    }
+});
+
+function nextStep() {
+    const content = document.querySelector('.quiz-content');
+    content.classList.remove('fade-in');
+    content.classList.add('fade-out');
+
+    content.addEventListener('animationend', () => {
         currentStep++;
         if (currentStep < quizData.length) {
             loadQuiz();
@@ -135,8 +142,8 @@ nextBtn.addEventListener('click', () => {
                 Baseado em suas respostas, você consome aproximadamente ${totalScore * 10} Barbies de plástico por ano!
             `;
         }
-    }
-});
+    }, { once: true });
+}
 
 // Carregar a primeira pergunta ou curiosidade
 loadQuiz();
