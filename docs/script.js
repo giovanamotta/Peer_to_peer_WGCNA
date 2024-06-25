@@ -101,7 +101,7 @@ function loadQuiz() {
 
 function getSelected() {
     const answers = document.querySelectorAll('input[name="answer"]');
-    let answer;
+    let answer = null;
     answers.forEach(ans => {
         if (ans.checked) {
             answer = ans.value;
@@ -116,33 +116,32 @@ nextBtn.addEventListener('click', () => {
         const answer = getSelected();
         if (answer) {
             totalScore += currentData.values[answer];
-            nextStep();
+            currentStep++;
+            if (currentStep < quizData.length) {
+                loadQuiz();
+            } else {
+                displayResults();
+            }
         } else {
             alert('Por favor, selecione uma resposta!');
         }
     } else {
-        nextStep();
-    }
-});
-
-function nextStep() {
-    const content = document.querySelector('.quiz-content');
-    content.classList.remove('fade-in');
-    content.classList.add('fade-out');
-
-    content.addEventListener('animationend', () => {
         currentStep++;
         if (currentStep < quizData.length) {
             loadQuiz();
         } else {
-            quiz.innerHTML = '';
-            results.innerHTML = `
-                Você completou o quizz!
-                <br>
-                Baseado em suas respostas, você consome aproximadamente ${totalScore * 10} Barbies de plástico por ano!
-            `;
+            displayResults();
         }
-    }, { once: true });
+    }
+});
+
+function displayResults() {
+    quiz.innerHTML = '';
+    results.innerHTML = `
+        Você completou o quizz!
+        <br>
+        Baseado em suas respostas, você consome aproximadamente ${totalScore * 10} Barbies de plástico por ano!
+    `;
 }
 
 // Carregar a primeira pergunta ou curiosidade
