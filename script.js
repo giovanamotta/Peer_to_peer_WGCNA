@@ -1,3 +1,15 @@
+function nextSection(sectionNumber) {
+    const currentSection = document.querySelector('.quiz-section:not([style*="display: none"])');
+    if (currentSection) {
+        currentSection.style.display = 'none';
+    }
+
+    const nextSection = document.getElementById(`section-${sectionNumber}`);
+    if (nextSection) {
+        nextSection.style.display = 'block';
+    }
+}
+
 function calculateScore() {
     const form = document.getElementById('quiz-form');
     const formData = new FormData(form);
