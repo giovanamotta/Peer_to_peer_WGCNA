@@ -138,4 +138,5 @@ nextBtn.addEventListener('click', () => {
     }
 });
 
+// Carregar a primeira pergunta ou curiosidade
 loadQuiz();
