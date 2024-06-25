@@ -1,42 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz da Pegada de Plástico</title>
+    <title>Quizz Barbie sobre Pegada de Plástico</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="quiz-container">
-        <h1>Quiz da Pegada de Plástico - Projeto BARBIE</h1>
-        <form id="quiz-form">
-            <div class="quiz-section" id="section-1">
-                <h2>1. Você usa sacolas plásticas quando vai ao supermercado?</h2>
-                <label><input type="radio" name="q1" value="5"> Sim, sempre</label><br>
-                <label><input type="radio" name="q1" value="3"> Às vezes</label><br>
-                <label><input type="radio" name="q1" value="1"> Nunca</label><br>
-                <button type="button" onclick="nextSection(2)">Próxima</button>
-            </div>
-            <div class="quiz-section" id="section-2" style="display:none;">
-                <h2>Curiosidade: Sabia que o plástico demora até 1000 anos para se decompor?</h2>
-                <button type="button" onclick="nextSection(3)">Próxima</button>
-            </div>
-            <div class="quiz-section" id="section-3" style="display:none;">
-                <h2>2. Com que frequência você compra garrafas de água de plástico?</h2>
-                <label><input type="radio" name="q2" value="5"> Diariamente</label><br>
-                <label><input type="radio" name="q2" value="3"> Ocasionalmente</label><br>
-                <label><input type="radio" name="q2" value="1"> Nunca</label><br>
-                <button type="button" onclick="nextSection(4)">Próxima</button>
-            </div>
-            <div class="quiz-section" id="section-4" style="display:none;">
-                <h2>Curiosidade: Cerca de 8 milhões de toneladas de plástico vão parar nos oceanos todos os anos.</h2>
-                <button type="button" onclick="nextSection(5)">Próxima</button>
-            </div>
-            <div class="quiz-section" id="section-5" style="display:none;">
-                <button type="button" onclick="calculateScore()">Ver Resultado</button>
-            </div>
-        </form>
-        <div id="result" style="display:none;"></div>
+        <h1>Quizz Barbie sobre Pegada de Plástico</h1>
+        <div id="quiz">
+            <!-- Perguntas e curiosidades serão inseridas aqui pelo JavaScript -->
+        </div>
+        <button id="next">Próximo</button>
+        <div id="results"></div>
     </div>
     <script src="script.js"></script>
 </body>
