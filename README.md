@@ -7,7 +7,7 @@ Whether you're working with development, disease models, or drug response, WGCNA
 
 Attendees to this session will learn:
 
-Understand the rationale and workflow of WGCNA to identify and interpret co-expression modules associated with phenotypic traits.
-Explore network construction using soft-thresholding power selection and topological overlap matrices (TOMs);
-Visualize module–trait associations through heatmaps and correlation plots.
-Learn how to extract hub or driver genes from key modules using intramodular connectivity and gene significance analysis.
+1. Understand the rationale and workflow of WGCNA to identify and interpret co-expression modules associated with phenotypic traits.
+2. Explore network construction using soft-thresholding power selection and topological overlap matrices (TOMs);
+3. Visualize module–trait associations through heatmaps and correlation plots.
+4. Learn how to extract hub or driver genes from key modules using intramodular connectivity and gene significance analysis.
